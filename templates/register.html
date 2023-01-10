@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+    <title>Cadastrar</title>
+</head>
+<body>
+    <div class="register">
+        <h1 class="title">Agenda</h1>
+
+        <form action="/register-user" method="POST">
+            <div class="conteiner">
+                <input name="name" class="input name" type="text" placeholder="nome" />
+                <input name="email" class="input email" type="email" placeholder="e-mail" />
+                <input name="password" class="input password" type="password" placeholder="senha" />
+                <input name="password2" class="input password again" type="password" placeholder="repita sua senha" />
+            </div>
+
+            <div class="buttons conteiner">
+                <a href="/"><button class="button back">Voltar</button></a>
+                <button type="submit" class="button register">Cadastrar</button>    
+            </div>
+        </form>
+    </div>
+</body>
+</html>

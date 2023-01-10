@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <title>Login</title>
+</head>
+<body>
+    <div class="smartphone">
+        <div class="login">
+            <h1 class="title">Agenda</h1>
+            
+            <form action="/login-user" method="POST">
+                <div>
+                    <div class="conteiner">
+                        <input name="email" class="input email" type="email" placeholder="e-mail" />
+                        <input name="password" class="input password" type="password" placeholder="senha" />
+                    </div>
+        
+                    <a href="/register-page"><b>Não possui cadastro?</b></a>
+                </div>
+                
+                <button type="submit" class="button access">Acessar</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
