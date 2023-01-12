@@ -9,11 +9,14 @@
 </head>
 <body>
     <div class="smartphone">
-        <p>Olá {{ user[0] }}</p>
-        <a href="/"><button>Deslogar</button><a/>
-        <form action="/delete-user" method="POST">
-            <button type="submit">Deletar conta</button>
-        </form>
+        <div class="content">
+            <p class="title">Olá {{ user[0] }}</p>
+            <a href="/"><button class="button">Deslogar</button><a/>
+            <a href="/agenda"><button class="button">Voltar</button><a/>
+            <form action="/delete-user" method="POST">
+                <button class="button" type="submit">Deletar conta</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>

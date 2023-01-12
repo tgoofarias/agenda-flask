@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, redirect, url_for, session
-from flask_login import login_user, logout_user, current_user
 import sqlite3
 
 app = Flask(__name__)
@@ -25,6 +24,8 @@ def register_page():
 @app.route("/register-user", methods=["POST"])
 def register_user():
     name, email, password, password2 = request.form["name"], request.form["email"], request.form["password"], request.form["password2"]
+    if "" in [name, email, password, password2]:
+        return redirect(url_for("register_page"))
     if (password == password2):
         connection = sqlite3.connect("schedule.db")
         cursor = connection.cursor()
