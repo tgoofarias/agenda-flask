@@ -5,87 +5,99 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main-page.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/calendar.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/calendar.js') }}"></script>
+
     <title>Agenda</title>
 </head>
 <body>
-    <div class="smartphone">
-        <header>
-            <div class="header">
-                <p class="title">Agenda</p>
-                <a href="/user-page"><img class="usericon" src="{{ url_for('static', filename='img/user_icon.png') }}" width="20" height="20"/></a>
-            </div>
-        </header>
+    <header>
+        <div class="header">
+            <p class="title">Agenda</p>
+            <a href="/user-page"><img class="usericon" src="{{ url_for('static', filename='img/user_icon.png') }}" width="50" height="50"/></a>
+        </div>
+    </header>
 
-        <!-- div do calendario -->
-        <div class="content">
-            <!-- div do titulo e botoes do calendario -->
-            <div class="cabecalho">
-                <div class="calendar">
-                    <!-- TO-DO encontrar imagem de calendario (imagem de arrow_left provisoria) -->
-                    <img src="{{ url_for('static', filename='img/arrow_left.png') }}" width="20" height="20"/>
-                    <p>Dezembro de 2022</p>
-                </div>
-                
-                <div>
-                    <!-- botao retornar mes -->
-                    <img src="{{ url_for('static', filename='img/arrow_left.png') }}" width="20" height="20"/>
-                    <!-- botao avançar mes -->
-                    <img src="{{ url_for('static', filename='img/arrow_right.png') }}" width="20" height="20"/>
-                </div>
-            </div>
-            <!-- Calendario -->
-            <div>
-                <table>
-                    <thead>
-                        <tr>
-                            <td>Dom</td>
-                            <td>Seg</td>
-                            <td>Ter</td>
-                            <td>Qua</td>
-                            <td>Qui</td>
-                            <td>Sex</td>
-                            <td>Sab</td>
-                        </tr>
-                    </thead>
-                    
-                    <tbody>
-                        <tr>
-                            {% for c in range(1, 8): %}
-                                <td>{{ c }}</td>
-                            {% endfor %}
-                        </tr>
-                        <tr>
-                            {% for c in range(8, 15): %}
-                                <td>{{ c }}</td>
-                            {% endfor %}
-                        </tr>
-                        <tr>
-                            {% for c in range(15, 22): %}
-                                <td>{{ c }}</td>
-                            {% endfor %}
-                        </tr>
-                        <tr>
-                            {% for c in range(22, 29): %}
-                                <td>{{ c }}</td>
-                            {% endfor %}
-                        </tr>
-                        <tr>
-                            {% for c in range(29, 32): %}
-                                <td>{{ c }}</td>
-                            {% endfor %}
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <!-- div de eventos -->
-            <div>
-                <p>Eventos - 20 de Dezembro, 2022</p>
-
-                <!-- eventos -->
-                <div>
-                    <!-- TO-DO template de evento -->
-                </div>
-            </div>
+    <!-- div do calendario -->
+    <div class="conteudo">
+        <div class="calendario">
+            <header>
+                <h2 id="mes">Abril</h2>
+                <a class="bnt-ant" id="bnt_prev"><</a>
+                <a class="bnt-pro" id="bnt_next">></a>
+            </header>
+            <table>
+                <tdhead>
+                    <tr>
+                        <td>Dom</td>
+                        <td>Seg</td>
+                        <td>Ter</td>
+                        <td>Qua</td>
+                        <td>Qui</td>
+                        <td>Sex</td>
+                        <td>Sab</td>
+                    </tr>
+                </tdhead>
+                <tbody id="dias">
+                    <tr>
+                        <td><button type="button" id="teste">1</button></td>
+                        <td><button type="button" id="teste">1</button></td>
+                        <td><button type="button" id="teste">1</button></td>
+                        <td><button type="button" id="teste">1</button></td>
+                        <td><button type="button" id="teste">1</button></td>
+                        <td><button type="button" id="teste">1</button></td>
+                        <td><button type="button" id="teste">1</button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="button" id="teste">1</button></td>
+                        <td><button type="button" id="teste">1</button></td>
+                        <td><button type="button" id="teste">1</button></td>
+                        <td><button type="button" id="teste">1</button></td>
+                        <td><button type="button" id="teste">1</button></td>
+                        <td><button type="button" id="teste">1</button></td>
+                        <td><button type="button" id="teste">1</button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="button" id="teste">1</button></td>
+                        <td><button type="button" id="teste">1</button></td>
+                        <td><button type="button" id="teste">1</button></td>
+                        <td><button type="button" id="teste">1</button></td>
+                        <td><button type="button" id="teste">1</button></td>
+                        <td><button type="button" id="teste">1</button></td>
+                        <td><button type="button" id="teste">1</button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="button" id="teste">1</button></td>
+                        <td><button type="button" id="teste">1</button></td>
+                        <td><button type="button" id="teste">1</button></td>
+                        <td><button type="button" id="teste">1</button></td>
+                        <td><button type="button" id="teste">1</button></td>
+                        <td><button type="button" id="teste">1</button></td>
+                        <td><button type="button" id="teste">1</button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="button" id="teste">1</button></td>
+                        <td><button type="button" id="teste">1</button></td>
+                        <td><button type="button" id="teste">1</button></td>
+                        <td><button type="button" id="teste">1</button></td>
+                        <td><button type="button" id="teste">1</button></td>
+                        <td><button type="button" id="teste">1</button></td>
+                        <td><button type="button" id="teste">1</button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="button" id="teste">1</button></td>
+                        <td><button type="button" id="teste">1</button></td>
+                        <td><button type="button" id="teste">1</button></td>
+                        <td><button type="button" id="teste">1</button></td>
+                        <td><button type="button" id="teste">1</button></td>
+                        <td><button type="button" id="teste">1</button></td>
+                        <td><button type="button" id="teste">1</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <footer>
+                <h2 id="ano"></h2>
+            </footer>
         </div>
     </div>
 </body>

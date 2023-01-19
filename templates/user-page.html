@@ -8,15 +8,13 @@
     <title>User</title>
 </head>
 <body>
-    <div class="smartphone">
-        <div class="content">
-            <p class="title">Olá {{ user[0] }}</p>
-            <a href="/"><button class="button">Deslogar</button><a/>
-            <a href="/agenda"><button class="button">Voltar</button><a/>
-            <form action="/delete-user" method="POST">
-                <button class="button" type="submit">Deletar conta</button>
-            </form>
-        </div>
+    <div class="content">
+        <p class="title">Olá {{ user[0] }}</p>
+        <a href="/"><button class="button">Deslogar</button><a/>
+        <a href="/agenda"><button class="button">Voltar</button><a/>
+        <form action="/delete-user" method="POST">
+            <button class="button" type="submit">Deletar conta</button>
+        </form>
     </div>
 </body>
 </html>
