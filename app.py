@@ -52,6 +52,27 @@ def delete_user():
     connection.commit()
     return redirect(url_for("index"))
 
+
+
+@app.route("/add-event-page")
+def add_event_page():
+    return render_template("add-event-page.html")
+
+@app.route("/add-event", methods=["POST"])
+def add_event():
+    titulo, descricao, data = request.form["titulo"], request.form["descricao"], request.form["data"]
+    connection = sqlite3.connect("schedule.db")
+    cursor = connection.cursor()
+    cursor.execute(f"INSERT INTO agenda_eventos(titulo, descricao, data) VALUES ('{titulo}', '{descricao}', '{data}');")
+    connection.commit()
+    return redirect(url_for("agenda"))
+
+@app.route("/get-events/<dia>-<mes>-<ano>")
+def get_events(ano, mes, dia):
+    connection = sqlite3.connect("schedule.db")
+    cursor = connection.cursor()
+    cursor.execute(f"SELECT * FROM agenda_eventos WHERE data='{ano}-{mes}-{dia}';")
+
 def get_users():
     connection = sqlite3.connect("schedule.db")
     cursor = connection.cursor()

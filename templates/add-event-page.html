@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <title>Login</title>
+</head>
+<body>
+    <h1 class="title">Agenda</h1>
+    
+    <form action="/add-event" method="POST">
+        <div>
+            <div class="conteiner">
+                <input name="titulo" class="input titulo" type="text" placeholder="titulo" />
+                <input name="descricao" class="input descricao" type="text" placeholder="descricao" />
+                <input name="data" class="input data" type="date" placeholder="data" />
+            </div>
+        </div>
+        
+        <button type="submit" class="button access">Acessar</button>
+    </form>
+</body>
+</html>
