@@ -1,0 +1,3 @@
+const getEvents = () => {
+    document.getElementById("");
+}

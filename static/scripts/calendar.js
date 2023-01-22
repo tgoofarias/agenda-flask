@@ -1,3 +1,16 @@
+const getEventt = (ano, mes, dia) => {
+    meses = {
+        janeiro: "01",
+    }
+    mesNum = meses[mes];
+    if (parseInt(dia) < 10) {
+        fetch("/get-events/"+ano+"-"+mes+"-0"+dia).then(data => alert(data));
+    }
+    else {
+        fetch("/get-events/"+ano+"-"+mes+"-"+dia).then(data => alert(data));
+    }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     const months = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
     const tableDays = document.getElementById("dias");
@@ -13,6 +26,13 @@ document.addEventListener("DOMContentLoaded", () => {
             let dayTable = tableDays.getElementsByTagName("button")[index];
             dayTable.classList.remove("mes-anterior");
             dayTable.classList.remove("proximo-mes");
+            /*
+            ano = getElementById("ano").innerHTML;
+            mes = getElementById("mes").innerHTML;
+            dia = dayTable.innerHTML;
+
+            dayTable.onclick = () => { getEvent(ano, mes, dia); }
+            */
             dayTable.innerHTML = dt.getDate();
 
             if (i < 1) {

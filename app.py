@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session,jsonify
 import sqlite3
 
 app = Flask(__name__)
@@ -52,7 +52,7 @@ def delete_user():
     connection.commit()
     return redirect(url_for("index"))
 
-
+'''   EVENTOS  '''
 
 @app.route("/add-event-page")
 def add_event_page():
@@ -67,11 +67,16 @@ def add_event():
     connection.commit()
     return redirect(url_for("agenda"))
 
-@app.route("/get-events/<dia>-<mes>-<ano>")
+@app.route("/get-events/<ano>-<mes>-<dia>")
 def get_events(ano, mes, dia):
     connection = sqlite3.connect("schedule.db")
     cursor = connection.cursor()
     cursor.execute(f"SELECT * FROM agenda_eventos WHERE data='{ano}-{mes}-{dia}';")
+    results = cursor.fetchall()
+    json = []
+    for result in results:
+        json.append({"titulo": result[0], "descricao": result[1], "data": result[2]})
+    return jsonify(json)
 
 def get_users():
     connection = sqlite3.connect("schedule.db")

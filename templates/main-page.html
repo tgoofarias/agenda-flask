@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main-page.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/calendar.css') }}">
     <script type="text/javascript" src="{{ url_for('static', filename='scripts/calendar.js') }}"></script>
-
     <title>Agenda</title>
 </head>
 <body>
@@ -40,7 +39,7 @@
                 </tdhead>
                 <tbody id="dias">
                     <tr>
-                        <td><button type="button" id="teste">1</button></td>
+                        <td><button type="button" id="teste" onclick="getEvent()">1</button></td>
                         <td><button type="button" id="teste">1</button></td>
                         <td><button type="button" id="teste">1</button></td>
                         <td><button type="button" id="teste">1</button></td>
@@ -98,7 +97,36 @@
             <footer>
                 <h2 id="ano"></h2>
             </footer>
+            <a href="/add-event-page">Add Event</a>
+            <div id="events">
+                
+            </div>
         </div>
     </div>
+    
+    <script type="text/javascript">
+        async function getEvent() {
+            const response = await fetch("/get-events/2023-01-20");
+            const jsonResponse = response.json();
+
+            jsonResponse.then((data) => {
+                data.forEach((event) => {
+                    console.log(event);
+                    
+                    const node = document.createElement("h1");
+                    const textNode = document.createTextNode(`${event["titulo"]}`);
+                    node.appendChild(textNode);
+                    document.getElementById("events").appendChild(node);
+                    
+                   /*
+                    const node = document.getElementById("event_template");
+                    const clone = node.cloneNode(true);
+                    clone.getElementById("event_title") = event["titulo"];
+                    document.getElementById("events").appendChild(clone);
+                    */
+                });
+            });
+        }
+    </script>
 </body>
 </html>
