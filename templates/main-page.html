@@ -110,21 +110,12 @@
             const jsonResponse = response.json();
 
             jsonResponse.then((data) => {
+                let html = "";
                 data.forEach((event) => {
                     console.log(event);
-                    
-                    const node = document.createElement("h1");
-                    const textNode = document.createTextNode(`${event["titulo"]}`);
-                    node.appendChild(textNode);
-                    document.getElementById("events").appendChild(node);
-                    
-                   /*
-                    const node = document.getElementById("event_template");
-                    const clone = node.cloneNode(true);
-                    clone.getElementById("event_title") = event["titulo"];
-                    document.getElementById("events").appendChild(clone);
-                    */
+                    html += `<h1>Título: ${event['titulo']}</h1><h1>Descrição: ${event['descricao']}</h1><br>`;
                 });
+                document.getElementById("events").innerHTML = html;
             });
         }
     </script>
